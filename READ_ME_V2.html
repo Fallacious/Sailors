@@ -1,0 +1,365 @@
+<h1><a href="#aclmvfn_model">ACLMVFN Model</a></h1>
+<p>T4 P004 2018 V2.0</p>
+<p>Auteur<br>Floris Dijkstra</p>
+
+<hr> <!-- ====================================================================================== -->
+
+<h2>Samenvatting</h2>
+<p>In dit document staat de architectuur van de website van team 4 beschreven volgens het “<a href="#aclmvfn_model">ACLMVFN Model</a>”. Het “<a href="#aclmvfn_model">ACLMVFN Model</a>” is alleen succesvol als de regels in dit document strikt nageleefd worden.</p>
+
+<hr> <!-- ====================================================================================== -->
+
+<h2>Inhoud</h2>
+<ul>
+    <li><a href="#mappen_structuur">1 Mappen structuur</a>
+    	<ul>
+	    	<li><a href="#mappen">1.1 Mappen</a>
+	    		<ul>
+		    		<li><a href="#api">1.1.1 Api</a></li>
+		    		<li><a href="#classes">1.1.2 Classes</a></li>
+		    		<li><a href="#libraries">1.1.3 Libraries</a></li>
+		    		<li><a href="#miscellaneous">1.1.4 Miscellaneous</a></li>
+		    		<li><a href="#views">1.1.5 Views</a></li>
+		    		<li><a href="#forms">1.1.6 Forms</a></li>
+		    		<li><a href="#navigation">1.1.7 Navigation</a></li>
+	    		</ul>
+	    	</li>
+    	</ul>
+  	</li>
+  	<li><a href="#documentatie">2 Documentatie</a>
+  		<ul>
+  			<li><a href="#voorbeelden">2.1 Voorbeelden</a></li>
+  			<li><a href="#afkortingen">2.2 Afkortingen</a></li>
+  		</ul>
+  	</li>
+  	<li><a href="#naamconventies">3 Naamconventies</a>
+  		<ul>
+  			<li><a href="#overzicht">3.1 Overzicht</a></li>
+  			<li><a href="#gereserveerde_namen">3.2 Gereserveerde namen</a></li>
+  		</ul>
+  	</li>
+  	<li><a href="#verklarende_woordenlijst">4 Verklarende woordenlijst</a>
+  		<ul>
+  			<li>4.1 <a href="#library">Library</a></li>
+  			<li>4.2 <a href="#aclmvfn_model">ACLMVFN Model</a></li>
+  			<li><a href="#naamconventies2">4.3 Naamconventies</a>
+  				<ul>
+  					<li>4.3.1 <a href="#pascalcased">PascalCased</a></li>
+  					<li>4.3.2 <a href="#camelcased">camelCased</a></li>
+  					<li>4.3.3 <a href="#lower_case">lower_case</a></li>
+  					<li>4.3.4 <a href="#upper_case">UPPER_CASE</a></li>
+  				</ul>
+  			</li>
+  		</ul>
+  	</li>
+</ul>
+
+<hr> <!-- ====================================================================================== -->
+
+<h2 id="mappen_structuur">1 Mappen structuur</h2>
+<ul>
+	<li>“routes.php” en “index.php” zijn de enige bestanden waar de statements “require_once” en “include” gebruikt mogen worden.</li>
+	<li>Alle bestanden hebben de extentie “.php”, behalve bestanden waarin CSS code staat, deze hebben de extentie “.CSS”.</li>
+	<li>CSS mag alleen in het bestand “routes.php” geïncludeerd worden.</li>
+	<li>De mappen classes, libraries en miscellaneous vallen onder de term ondersteuning.</li>
+	<li>De mappen views, forms en navigation vallen onder de term controllers.</li>
+	<li>De mappen classes, libraries en miscellaneous zijn ter ondersteuning voor de bestanden die in de mappen views, forms, naviation zitten.</li>
+	<li>De logica van de applicatie vindt plaats in de controllers.</li>
+</ul>
+<p>Alle bestanden in deze applicatie hebben gemeen dat ze dezelfde extensie delen, namelijk “.php”. De rede hiervoor is dat als je in een “.php” bestand (waar voor het voorbeeld alleen HTML code in staat) PHP code wilt toevoegen, meteen de daarbij horende “color scheme” zichtbaar wordt.</p>
+<p>Hieronder zie je de mappenstructuur van de website <a href="https://t04-er-1718.clow.nl/">https://t04-er-1718.clow.nl/</a>. Bestanden zijn cursief weergeven en mappen niet. De map “/domains/t04-er-1718.clow.nl/e_register” is ingedeeld in een aantal categorieën. Deze categorieën staan in de volgende subhoofdstukken beschreven.</p>
+<ul>
+	<li>/domains/t04-er-1718.clow.nl/e_register
+		<ul>
+			<li>/api</li>
+			<li>/classes</li>
+			<li>/libraries</li>
+			<li>/miscellaneous</li>
+			<li>/views</li>
+			<li>/forms</li>
+			<li>/navigation</li>
+			<li><i>/routes.php</i></li>
+		</ul>
+	</li>
+	<li>/domains/ t04-er-1718.clow.nl/public_html
+		<ul>
+			<li>/media
+				<ul>
+					<li>/profile</li>
+					<li>/logo</li>
+				</ul>
+			</li>
+			<li><i>/index.php</i></li>
+		</ul>
+	</li>
+</ul>
+
+<h3 id="mappen">1.1 Mappen</h3>
+<p>In de onderstaande subhoofdstukken staat het doel van de mappen beschreven.</p>
+
+<h4 id="api">1.1.1 Api</h4>
+<ul>
+	<li>In deze map komt alles te staan wat met de api te maken heeft.</li>
+	<li>Het is verstandig om uit deze map te blijven.</li>
+</ul>
+
+<h4 id="classes">1.1.2 Classes</h4>
+<ul>
+	<li>In deze map komen alle classes te staan.</li>
+	<li>Elke class komt in zijn eigen bestand te staan.</li> 
+	<li>Het is alleen toegestaan een class te definiëren in zo’n bestand. Dus GEEN andere programmatuur in deze bestanden!</li>
+	<li>De naam van de class is hetzelfde als de naam van het bestand waar het in staat.</li>
+	<li>Gebruik “<a href="#pascalcased">PascalCased</a>” voor class namen, “<a href="#camelcased">camelCased</a>” voor methods en properties.</li>
+</ul>
+
+<h4 id="libraries">1.1.3 Libraries</h4>
+<ul>
+	<li>In deze map komen alle libraries te staan.</li>
+	<li>Het is alleen toegestaan een functie te definiëren in zo’n bestand. Dus GEEN andere programmatuur in deze bestanden!</li>
+	<li>De naam van de <a href="#library">library</a> moet een passende alles omvattende korte naam zijn.</li>
+</ul>
+
+<h4 id="miscellaneous">1.1.4 Miscellaneous</h4>
+<ul>
+	<li>In deze map komt alles te staan wat niet onder een van de categorieën valt.</li>
+	<li>Overleg wel eerst met de F. Dijkstra of dit nodig is.</li>
+</ul>
+
+<h4 id="views">1.1.5 Views</h4>
+<ul>
+	<li>In deze map komt alles te staan wat data aan de gebruiker laat zien.</li>
+	<li>Elke tabel, grafiek, array, etc moet in een apart bestand.</li>
+</ul>
+
+<h4 id="forms">1.1.6 Forms</h4>
+<ul>
+	<li>In deze map komen alle forms te staan.</li>
+	<li>Elke form moet in een apart bestand.</li>
+	<li>De verwerking van de gegevens, afkomstig van de form, moeten in datzelfde bestand verwerkt worden.</li>
+</ul>
+
+<h4 id="navigation">1.1.7 Navigation</h4>
+<ul>
+	<li>In deze map komen onder andere headers, footers, navigatiebalken, etc te staan.</li>
+	<li>Elk element moet in een apart bestand.</li>
+</ul>
+
+<hr> <!-- ====================================================================================== -->
+
+<h2 id="documentatie">2 Documentatie</h2>
+<p>Voor het documenteren kies je ervoor om dat in het Nederlands of Engels te doen. GEEN van beide. Soms komt het beter uit om dat in het Nederlands te doen dan in het Engels.</p>
+
+<h3 id="voorbeelden">2.1 Voorbeelden</h3>
+<ul>
+	<li><a href="http://docs.phpdoc.org/getting-started/your-first-set-of-documentation.html">Voorbeeld 1</a></li>
+	<li><a href="https://pear.php.net/manual/en/standards.sample.php">Voorbeeld 2</a></li>
+</ul>
+
+<h3 id="afkortingen">2.2 Afkortingen</h3>
+<p>De afkortingen hieronder gebruik je in je documentatie om aan te geven wat de datatype is van de “@param”.</p>
+<table border="1">
+	<tr>
+	    <th>Afkorting</th>
+	    <th>Volledig</th>
+	</tr>
+	<tr>
+	    <td>  Str  </td>
+	    <td>  String  </td>
+	</tr>
+	<tr>
+	    <td>  Int  </td>
+	    <td>  Interger  </td>
+	</tr>
+	<tr>
+	    <td>  Bool  </td>
+	    <td>  Boolean  </td>
+	</tr>
+	<tr>
+	    <td>  Arr  </td>
+	    <td>  Array  </td>
+	</tr>
+	<tr>
+	    <td>  Obj  </td>
+	    <td>  Object  </td>
+	</tr>
+	<tr>
+	    <td>  Flt  </td>
+	    <td>  Float  </td>
+	</tr>
+</table>
+
+<hr> <!-- ====================================================================================== -->
+
+<h2 id="naamconventies">3 Naamconventies</h2>
+<p>Een naam is een benoeming van een class, method, propertie, fuction, variable, constant, folder, file en class file. Voor alle namen moet de taal Engels gebruikt worden. De namen moeten kort en bondig zijn. Namen mogen niet dubbel gebruikt worden. Binnen een functie hoef je niet rekening te houden met namen die al gebruikt zijn buiten die functie.</p>
+
+<h3 id="overzicht">3.1 Overzicht</h3>
+<p>In deze tabel staan alle soorten namen die door een programmeur gedefinieerd kan worden. Daarachter staat welk format gebruikt moet worden voor de naamgeving. In de verklarende woordenlijst kun je de definities vinden van deze formats.</p>
+<table border="1">
+	<tr>
+	    <th>  Classes  </th>
+	    <th>  <a href="#pascalcased">PascalCased</a>  </th>
+	</tr>
+	<tr>
+	    <td>  Methods  </td>
+	    <td>  <a href="#camelcased">camelCased</a>  </td>
+	</tr>
+	<tr>
+	    <td>  Properties  </td>
+	    <td>  <a href="#camelcased">camelCased</a>  </td>
+	</tr>
+	<tr>
+	    <td>  Functions  </td>
+	    <td>  <a href="#lower_case">lower_case</a>  </td>
+	</tr>
+	<tr>
+	    <td>  Variables  </td>
+	    <td>  <a href="#lower_case">lower_case</a>  </td>
+	</tr>
+	<tr>
+	    <td>  Constants  </td>
+	    <td>  <a href="#upper_case">UPPER_CASE</a>  </td>
+	</tr>
+	<tr>
+	    <td>  Folders  </td>
+	    <td>  <a href="#lower_case">lower_case</a>  </td>
+	</tr>
+	<tr>
+	    <td>  Files  </td>
+	    <td>  <a href="#lower_case">lower_case</a>  </td>
+	</tr>
+	<tr>
+	    <td>  Class files  </td>
+	    <td>  <a href="#pascalcased">PascalCased</a>  </td>
+	</tr>
+</table>
+
+<h3 id="gereserveerde_namen">3.2 Gereserveerde namen</h3>
+<p>Alle namen van folders, files en class files die in de mappenstructuur van hoofdstuk 1 staan zijn gereserveerde namen en mogen dus niet gebruikt worden voor andere folders, files en class files.</p>
+<table border="1">
+  <tr>
+    <th>  Soort  </th>
+    <th>  Naam  </th>
+    <th>  Omschrijving  </th>
+  </tr>
+  <tr>
+    <td>  Variabele  </td>
+    <td>  $i  </td>
+    <td>  Wordt gebruikt als counter value in for loops  </td>
+  </tr>
+  <tr>
+    <td>  Variabele  </td>
+    <td>  $j  </td>
+    <td>  Wordt gebruikt als counter value in nested for loops  </td>
+  </tr>
+  <tr>
+    <td>  Variabele  </td>
+    <td>  $k  </td>
+    <td>  Wordt gebruikt als counter value in nested for loops  </td>
+  </tr>
+  <tr>
+    <td>  Variabele  </td>
+    <td>  $APP_PATH  </td>
+    <td>  Root van je applicatie   </td>
+  </tr>
+</table>
+
+<hr> <!-- ====================================================================================== -->
+
+<h2 id="verklarende_woordenlijst">4 Verklarende woordenlijst</h2>
+
+<h3 id="library">4.1 Library</h3>
+<p>Een collectie van routines in een bestand.</p>
+<ul>
+	<li><a href="http://www.ptutorial.com/php-tutorial/php-function-libraries">Voorbeeld 1</a></li>
+</ul>
+
+<h3 id="aclmvfn_model">4.2 ACLMVFN Model</h3>
+<p>Afkorting voor API Classes Libraries Miscellaneous Views Forms Navigation Model.</p>
+
+<h3 id="naamconventies2">4.3 Naamconventies</h3>
+<p>Beginnend met een hoofdletter, spaties en de daarop volgende letter vervangen door de corresponderende hoofdletter.</p>
+
+<h4 id="pascalcased">4.3.1 PascalCased</h4>
+<p>Beginnend met een hoofdletter, spaties en de daarop volgende letter vervangen door de corresponderende hoofdletter.</p>
+
+<h5>Voorbeelden</h5>
+<ul>
+	<li>PestJSON</li>
+	<li>APIVerbinding</li>
+	<li>Pest</li>
+</ul>
+
+<h4 id="camelcased">4.3.2 camelCased</h4>
+<p>Beginnend met een kleine letter (of 2 underscores), spaties en de daarop volgende letter vervangen door de corresponderende hoofdletter.</p>
+
+<h5>Voorbeelden</h5>
+<ul>
+	<li>__construct</li>
+	<li>prepRequest</li>
+</ul>
+
+<h4 id="lower_case">4.3.3 lower_case</h4>
+<p>Alleen kleine letters, spaties vervangen voor een underscore.</p>
+
+<h5>Voorbeelden</h5>
+<ul>
+	<li>show_login_form</li>
+	<li>validate</li>
+	<li>create_account</li>
+</ul>
+
+<h4 id="upper_case">4.3.4 UPPER_CASE</h4>
+<p>Alleen hoofdletters, spaties vervangen voor een underscore.</p>
+
+<h5>Voorbeelden</h5>
+<ul>
+	<li>APP_PATH</li>
+	<li>PI</li>
+</ul>
+
+<hr> <!-- ====================================================================================== -->
+
+<p>Auteur<br>Floris Dijkstra</p>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
