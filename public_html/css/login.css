@@ -1,0 +1,98 @@
+* {  
+    font-family: 'Open Sans', sans-serif;;
+}
+
+input {
+    border-color: gray;
+    border-radius: 0px;
+    border-width: thin;
+    border-style: solid;
+    padding: 3px;
+}
+
+input:focus {
+    outline-color: #000080;
+    box-shadow: #000080;
+}
+
+table {
+    margin-top:   30px;
+    margin-left:  20px;
+    margin-right: 20px;
+}
+
+th { 
+    white-space: normal;
+    font-weight: normal;
+    vertical-align: bottom;
+}
+
+td {
+    white-space: normal;
+    font-weight: normal;
+    vertical-align: middle;
+}
+
+p {
+    margin-top: 7px;
+}
+
+.centered {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+    background-color: white;
+    zoom: 130%;
+}
+
+.background {
+    position: absolute;
+        
+    top:    0px;
+    bottom: 0px;
+    left:   0px;
+    right:  0px;
+
+    background-image: url("../media/gebouw_dichtbij.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.background_black {
+    position: absolute;
+        
+    top:    0px;
+    bottom: 0px;
+    left:   0px;
+    right:  0px;
+
+    background-color: black;
+    opacity: 0.8;
+}
+
+.footer {
+    position: absolute;
+    text-align: center;
+
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    height: 30px;
+
+    background-color: black;
+    opacity: 0.6;
+}
+
+.footer_text {
+    position: absolute;
+    text-align: center;
+        
+    bottom:0px;
+    left:0px; 
+    right:0px; 
+    height: 30px;
+
+    color: white;
+}

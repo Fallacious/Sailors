@@ -1,0 +1,169 @@
+* {  
+    font-family: 'Open Sans', sans-serif;;
+}
+
+h2 {
+	margin-top: 12px;
+	margin-left: 50px;
+}
+
+h3 {
+	margin-top: 15px;
+	margin-left: 15px;
+}
+
+p {
+    margin-top: 7px;
+    margin-bottom: 7px;
+}
+
+a {
+	text-decoration: none;
+	color: rgb(222, 19, 101);
+}
+
+a:hover {
+	text-decoration: underline;
+	color: gray;
+}
+
+.text {
+	margin-left: 15px;
+}
+
+.navbar {
+	position: absolute;
+	text-align: left;
+
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	height: 50px;
+
+	border-bottom-style: solid;
+	border-bottom-width: 2px;
+	border-bottom-color: lightgray;
+}
+
+.right {
+	position: absolute;
+
+	top: 5px;
+	right: 5px;
+	height: 40px;
+}
+
+.triangle {
+	position: absolute;
+
+	top: 15px;
+	left: 30px;
+
+	width: 0;
+	height: 0;
+
+	border-top: 10px solid transparent;
+  	border-bottom: 10px solid transparent;
+  	border-left-style: solid;
+  	border-left-width: 10px;
+  	border-left-color: rgb(222, 19, 101);
+}
+
+.triangle_small {
+	display: inline-block;
+
+	width: 0;
+	height: 0;
+
+	padding-left: 7px;
+	margin-left: 7px;
+
+	border-top: 5px solid transparent;
+  	border-bottom: 5px solid transparent;
+  	border-left-style: solid;
+  	border-left-width: 5px;
+  	border-left-color: rgb(222, 19, 101);
+}
+
+.rectangle {
+	position: absolute;
+
+	top: 15px;
+	left: 0px;
+	width: 30px;
+	height: 20px;
+
+	background-color: rgb(222, 19, 101);
+}
+
+.left {
+	position: absolute;
+
+	top: 100px;
+	left: 0px;
+	width: 250px;
+
+	padding: 7px;
+
+	background-color: lightgray;
+}
+
+.main {
+	position: absolute;
+
+	top: 100px;
+	left: 300px;
+	right: 50px;
+	height: 100px;
+
+	overflow: scroll;
+}
+
+.student {
+	position: absolute;
+
+	top: 100px;
+	left: 0px;
+	width: 250px;
+	height: 50px;
+
+	background-color: lightgray;
+}
+
+.menu {
+	position: absolute;
+
+	top: 175px;
+	left: 0px;
+	width: 250px;
+
+	box-sizing: border-box;
+	padding: 15px;
+
+	background-color: lightgray;
+}
+
+.footer {
+    position: absolute;
+    text-align: center;
+
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    height: 30px;
+
+    background-color: black;
+    opacity: 0.6;
+}
+
+.footer_text {
+    position: absolute;
+    text-align: center;
+        
+    bottom:0px;
+    left:0px; 
+    right:0px; 
+    height: 30px;
+
+    color: white;
+}
